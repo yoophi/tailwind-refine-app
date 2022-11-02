@@ -1,7 +1,17 @@
-import React from "react";
+import { Refine } from "@pankod/refine-core";
+import routerProvider from "@pankod/refine-react-router-v6";
+import { sampleDataProvider } from "./data-providers";
+import { Layout } from "./layouts/Layout";
 
-function App() {
-  return <div className="text-3xl p-4 font-bold">Hello React!</div>;
-}
+const App: React.FC = () => {
+  return (
+    <Refine
+      routerProvider={routerProvider}
+      dataProvider={sampleDataProvider()}
+      resources={[{ name: "posts" }]}
+      Layout={Layout}
+    />
+  );
+};
 
 export default App;
